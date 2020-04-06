@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="4.1-input1-input2-matchingIDFlow" doc:id="50333dda-3d63-42ea-abf9-b6b94c101c42" >
+		<http:listener doc:name="Listener" doc:id="de7b5881-19b2-4c81-945b-7850b8ba50a4" config-ref="adpdomain_HTTP_Listener_config" path="/4.1-matching"/>
+		<set-variable value='#[{
+  "employee": [
+    {
+      "id": "A007",
+      "first_name": "Jan",
+      "last_name": "Doe"
+    },
+    {
+      "id": "A008",
+      "first_name": "Ron",
+      "last_name": "David"
+    },
+    {
+      "id": "A009",
+      "first_name": "Jane",
+      "last_name": "Kane"
+    },
+    {
+      "id": "A010",
+      "first_name": "Marsh",
+      "last_name": "Megan"
+    },
+    {
+      "id": "A011",
+      "first_name": "Kelly",
+      "last_name": "Mitch"
+    },
+    {
+      "id": "A012",
+      "first_name": "Chris",
+      "last_name": "Vaste"
+    }
+  ]
+}]' doc:name="input1" doc:id="75413c04-c7c4-47c8-a2cb-c9f6cc46651f" variableName="input1" />
+		<set-variable value='#[{
+  "scoreBoard": [
+    {
+      "id": "A007",
+      "subjects": [
+        "Maths",
+        "English",
+        "Arts",
+        "Drawimgs"
+      ],
+      "score": [
+        80,
+        75,
+        89,
+        100
+      ]
+    },
+    {
+      "id": "A008",
+      "subjects": [
+        "Maths",
+        "English",
+        "Arts",
+        "Drawimgs"
+      ],
+      "score": [
+        70,
+        85,
+        69,
+        90
+      ]
+    },
+    {
+      "id": "A021",
+      "subjects": [
+        "Maths",
+        "English",
+        "Arts",
+        "Drawimgs"
+      ],
+      "score": [
+        90,
+        87,
+        77,
+        95
+      ]
+    }
+  ]
+}]' doc:name="input2" doc:id="9d495c2f-9a46-4b50-a9b2-e9ae2b5b899e" variableName="input2" />
+		<ee:transform doc:name="Transform Message" doc:id="60b7f256-cd00-4a3e-b3be-445aace2ee53">
+			<ee:message>
+				<ee:set-payload resource="dwl/ouput4.1.dwl" />
+			</ee:message>
+		</ee:transform>
+	</flow></mule>

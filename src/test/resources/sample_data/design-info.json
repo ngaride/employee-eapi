@@ -1,0 +1,12 @@
+{
+  "sampleData": {
+    "57dc7be9-fe11-4015-b317-276ce315da92": {},
+    "138ff6a7-5381-43ee-9239-5fab382983f5": {
+      "payload": "sample_data/unknown.dwl"
+    },
+    "5f62db0b-64b5-41b7-9b2b-7c11bcf3fa5a": {
+      "vars-arraycount": "sample_data/defaultnumbertype.dwl"
+    },
+    "11238fd8-79de-43a6-83fb-e5e0da297849": {}
+  }
+}

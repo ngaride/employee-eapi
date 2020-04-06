@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "1c6cfec8-2dd3-4667-bf65-5e64df4aecdb",
+		"name": "employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1-create-employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/1-employee/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"1-employee",
+						"employee"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create-employee",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/1-employee/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"1-employee",
+								"employee"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "raw",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/java; charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Apr 2020 18:45:38 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "Jan Doe employee profile is created in HRMS System."
+				}
+			]
+		},
+		{
+			"name": "2-dw-function",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/2-dwfunction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"2-dwfunction"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "2-dw-function",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/2-dwfunction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"2-dwfunction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Apr 2020 18:46:34 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "\"Jan Doe employee profile is created in HRMS System.\""
+				}
+			]
+		},
+		{
+			"name": "4.1-matching",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/4.1-matching",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"4.1-matching"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "4.1-matching",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/4.1-matching",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"4.1-matching"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "502"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Apr 2020 18:47:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"certificate\": [\n        {\n            \"id\": \"A007\",\n            \"firstName\": \"Jan\",\n            \"LastName\": \"Doe\",\n            \"MarksBySubjectWise\": [\n                {\n                    \"Maths\": 80,\n                    \"English\": 75,\n                    \"Arts\": 89,\n                    \"Drawimgs\": 100\n                }\n            ]\n        },\n        {\n            \"id\": \"A008\",\n            \"firstName\": \"Ron\",\n            \"LastName\": \"David\",\n            \"MarksBySubjectWise\": [\n                {\n                    \"Maths\": 70,\n                    \"English\": 85,\n                    \"Arts\": 69,\n                    \"Drawimgs\": 90\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "4.2-NonMatchingInput2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/4.2-Input1-NoMatching",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"4.2-Input1-NoMatching"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "4.2-NonMatchingInput2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/4.2-Input1-NoMatching",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"4.2-Input1-NoMatching"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "440"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Apr 2020 18:49:06 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"employees\": {\n            \"id\": \"A009\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Kane\"\n        }\n    },\n    {\n        \"employees\": {\n            \"id\": \"A010\",\n            \"first_name\": \"Marsh\",\n            \"last_name\": \"Megan\"\n        }\n    },\n    {\n        \"employees\": {\n            \"id\": \"A011\",\n            \"first_name\": \"Kelly\",\n            \"last_name\": \"Mitch\"\n        }\n    },\n    {\n        \"employees\": {\n            \"id\": \"A012\",\n            \"first_name\": \"Chris\",\n            \"last_name\": \"Vaste\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "5-generate-json-array",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/jsonarray/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"jsonarray",
+						"10"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "5-generate-json-array",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/jsonarray/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"jsonarray",
+								"10"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Apr 2020 18:50:42 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10\n]"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

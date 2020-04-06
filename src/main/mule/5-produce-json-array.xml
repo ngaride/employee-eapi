@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="5-produce-json-arrayFlow" doc:id="21ca4809-84d7-45f5-8e0f-d01296f03815" >
+		<http:listener doc:name="Listener" doc:id="b6fb5dc7-a4ec-49ae-b0ae-d89266a982fc" config-ref="adpdomain_HTTP_Listener_config" path="/jsonarray/{arraycount}"/>
+		<set-variable value="#[attributes.uriParams.'arraycount' as Number]" doc:name="Set Variable" doc:id="208570ee-928c-4034-b743-8f4b6a9067cb" variableName="arraycount"/>
+		<ee:transform doc:name="Transform Message" doc:id="5c23c7e6-f8ef-4c92-b955-0e6498d67e32" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+
+fun genArrayList(list:Array, maxSize: Number) =
+    if (sizeOf(list) >=maxSize) list
+    else genArrayList(list ++ [(sizeOf(list)+1) as Number], maxSize)
+     
+---
+genArrayList([], vars.arraycount)]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	
+	
+</mule>

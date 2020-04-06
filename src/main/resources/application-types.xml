@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="employee" format="json">
+      <types:shape format="weave" example="examples/employee-req.json"><![CDATA[%dw 2.0
+
+type employee = {|
+  employee: {|
+    id: String, 
+    first_name: String, 
+    last_name: String
+  |}
+|} {"example": "{\\\"employee\\\":{\\\"id\\\":\\\"A007\\\",\\\"first_name\\\":\\\"Jan\\\",\\\"last_name\\\":\\\"Doe\\\"}}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="output4_1" format="json">
+      <types:shape format="weave" example="examples/output-4.1.json"><![CDATA[%dw 2.0
+
+type output4_1 = {|
+  certificate: Array<{|    id: String,     firstName: String,     LastName: String,     MarksBySubjectWise: {|      Maths: Number {"typeId": "int"},       English: Number {"typeId": "int"},       Arts: Number {"typeId": "int"},       Drawings: Number {"typeId": "int"}    |}  |}>
+|} {"example": "{\\\"certificate\\\":[{\\\"id\\\":\\\"XXX\\\",\\\"firstName\\\":\\\"XXX\\\",\\\"LastName\\\":\\\"YYY\\\",\\\"MarksBySubjectWise\\\":{\\\"Maths\\\":80,\\\"English\\\":90,\\\"Arts\\\":89,\\\"Drawings\\\":100}},{\\\"id\\\":\\\"XXX\\\",\\\"firstName\\\":\\\"XXX\\\",\\\"LastName\\\":\\\"YYY\\\",\\\"MarksBySubjectWise\\\":{\\\"Maths\\\":60,\\\"English\\\":80,\\\"Arts\\\":99,\\\"Drawings\\\":50}}]}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="input1" format="json">
+      <types:shape format="weave" example="examples/input1.json"><![CDATA[%dw 2.0
+
+type input1 = {|
+  employee: Array<{|    id: String,     first_name: String,     last_name: String  |}>
+|} {"example": "{\\\"employee\\\":[{\\\"id\\\":\\\"A007\\\",\\\"first_name\\\":\\\"Jan\\\",\\\"last_name\\\":\\\"Doe\\\"},{\\\"id\\\":\\\"A008\\\",\\\"first_name\\\":\\\"Ron\\\",\\\"last_name\\\":\\\"David\\\"},{\\\"id\\\":\\\"A009\\\",\\\"first_name\\\":\\\"Jane\\\",\\\"last_name\\\":\\\"Kane\\\"},{\\\"id\\\":\\\"A010\\\",\\\"first_name\\\":\\\"Marsh\\\",\\\"last_name\\\":\\\"Megan\\\"},{\\\"id\\\":\\\"A011\\\",\\\"first_name\\\":\\\"Kelly\\\",\\\"last_name\\\":\\\"Mitch\\\"},{\\\"id\\\":\\\"A012\\\",\\\"first_name\\\":\\\"Chris\\\",\\\"last_name\\\":\\\"Vaste\\\"}]}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="input2" format="json">
+      <types:shape format="weave" example="examples/input2.json"><![CDATA[%dw 2.0
+
+type input2 = {|
+  scoreBoard: Array<{|    id: String,     subjects: Array<String>, 
+    score: Array<Number {"typeId": "int"}>
+  |}>
+|} {"example": "{\\\"scoreBoard\\\":[{\\\"id\\\":\\\"A007\\\",\\\"subjects\\\":[\\\"Maths\\\",\\\"English\\\",\\\"Arts\\\",\\\"Drawimgs\\\"],\\\"score\\\":[80,75,89,100]},{\\\"id\\\":\\\"A008\\\",\\\"subjects\\\":[\\\"Maths\\\",\\\"English\\\",\\\"Arts\\\",\\\"Drawimgs\\\"],\\\"score\\\":[70,85,69,90]},{\\\"id\\\":\\\"A021\\\",\\\"subjects\\\":[\\\"Maths\\\",\\\"English\\\",\\\"Arts\\\",\\\"Drawimgs\\\"],\\\"score\\\":[90,87,77,95]}]}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="arraycount" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: string]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#11238fd8-79de-43a6-83fb-e5e0da297849">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:variables>
+          <types:variable name="input2" type="input2"/>
+          <types:variable name="input1" type="input1"/>
+        </types:variables>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="output4_1"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#bd01db03-bbc7-4741-abdc-0d60c3a8fdb2">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:variables>
+          <types:variable name="input2" type="input2"/>
+          <types:variable name="input1" type="input1"/>
+        </types:variables>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#5f62db0b-64b5-41b7-9b2b-7c11bcf3fa5a">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="arraycount"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

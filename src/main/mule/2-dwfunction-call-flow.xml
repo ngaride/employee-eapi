@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="2-dwfunction-call-flowFlow" doc:id="b2fc070c-669d-4f31-b7e0-2804fd348647" >
+		<http:listener doc:name="Listener" doc:id="b6cbf830-bf16-4260-a905-2aa41d771909" config-ref="adpdomain_HTTP_Listener_config" path="/2-dwfunction"/>
+		<ee:transform doc:name="Transform Message" doc:id="f91edcb1-1070-4e16-93a3-6cadb3e81c43">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+
+---
+Mule::lookup("create-employee-impl-flow", payload)]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	</mule>

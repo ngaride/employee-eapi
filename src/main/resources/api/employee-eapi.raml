@@ -1,0 +1,24 @@
+#%RAML 1.0
+title: employee-eapi
+
+types:
+  employeeReq:  !include datatypes/employeeRequest.raml
+  employeeRes:  !include datatypes/employeeResponse.raml
+
+/employee:
+  post:
+    body:
+      application/json:
+         type: employeeReq        
+    responses:
+      201:
+        body:
+          text/plain:
+            type: employeeRes  
+      400:
+        body:
+          text/plain:
+            example:
+              "Bad Data"          
+            
+        

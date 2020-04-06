@@ -1,0 +1,26 @@
+{
+  "certificate": [
+    {
+      "id": "XXX",
+      "firstName": "XXX",
+      "LastName": "YYY",
+      "MarksBySubjectWise": {
+        "Maths": 80,
+        "English": 90,
+        "Arts": 89,
+        "Drawings": 100
+      }
+    },
+    {
+      "id": "XXX",
+      "firstName": "XXX",
+      "LastName": "YYY",
+      "MarksBySubjectWise": {
+        "Maths": 60,
+        "English": 80,
+        "Arts": 99,
+        "Drawings": 50
+      }
+    }
+  ]
+}

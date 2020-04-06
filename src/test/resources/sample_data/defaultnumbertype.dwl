@@ -1,0 +1,1 @@
+10 as Number {encoding: "UTF-8", mediaType: "*/*", mimeType: "*/*", class: "java.lang.Integer"}
